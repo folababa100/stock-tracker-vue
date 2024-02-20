@@ -1,0 +1,129 @@
+<template>
+  <button :class="['btn', `btn-${variant}`, className]" v-bind="$attrs" @click="onClick">
+    <slot></slot>
+  </button>
+</template>
+
+<script lang="ts">
+import { defineComponent, PropType } from 'vue';
+
+export default defineComponent({
+  name: 'Button',
+  props: {
+    variant: {
+      type: String as PropType<'primary' | 'secondary' | 'sm' | 'close'>,
+      default: 'primary',
+    },
+    className: {
+      type: String,
+      default: '',
+    },
+  },
+  emits: ['click'],
+  setup(props, { emit }) {
+    const onClick = (event: Event) => {
+      emit('click', event);
+    };
+
+    return { onClick };
+  },
+});
+</script>
+
+<style scoped>
+.btn {
+  border: none;
+  font-family: inherit;
+  line-height: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: var(--border-radius-small);
+  font-size: var(--font-size-m);
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+
+  &-primary {
+    background-color: var(--color-blue1);
+    padding: 13px 12px;
+    color: var(--color-white-all);
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-semi-bold);
+    border-radius: var(--border-radius-medium);
+  }
+
+  &-primary:hover {
+    background-color: var(--color-blue2);
+  }
+
+  &-primary:active {
+    background-color: var(--color-blue3);
+  }
+
+  &-secondary {
+    background-color: var(--color-black);
+    padding: 13px 12px;
+    color: var(--color-white);
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-semi-bold);
+    border-radius: var(--border-radius-medium);
+  }
+
+  &-secondary:hover {
+    background-color: var(--color-black2);
+  }
+
+  &-secondary:active {
+    background-color: var(--color-black3);
+  }
+
+  &-sm {
+    padding: 8px 12px;
+    font-size: var(--font-size-s);
+    color: var(--color-white-all);
+    background-color: var(--color-black-all);
+  }
+
+  &-sm:hover {
+    background-color: var(--color-black2-all);
+  }
+
+  &-sm:active {
+    background-color: var(--color-black3-all);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &-primary:disabled {
+    background-color: var(--color-blue1);
+  }
+
+  &-secondary:disabled {
+    background-color: var(--color-black-all);
+  }
+
+  &-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border-radius: var(--border-radius-circle);
+  }
+
+  @media (min-width: 576px) {
+    padding-left: 16px;
+    padding-right: 16px;
+
+    &-primary {
+      padding: 13px 18px;
+    }
+
+    &-sm {
+      padding: 8px 18px;
+    }
+  }
+}
+</style>

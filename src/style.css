@@ -1,0 +1,173 @@
+@font-face {
+  font-family: DIN Next TR Regular;
+  src: url(/fonts/DINNextLTPro-Regular.woff) format('woff'), url(/fonts/DINNextLTPro-Regular.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: DIN Next TR Medium;
+  src: url(/fonts/DINNextLTPro-Medium.woff) format('woff'), url(/fonts/DINNextLTPro-Medium.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: DIN Next TR Bold;
+  src: url(/fonts/DINNextLTPro-Bold.woff) format('woff'), url(/fonts/DINNextLTPro-Bold.woff2) format('woff2');
+}
+
+:root {
+  --font-regular: DIN Next TR Regular, -apple-system, system-ui, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+  --font-medium: DIN Next TR Medium, -apple-system, system-ui, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+  --font-bold: DIN Next TR Bold, -apple-system, system-ui, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+
+  --color-white: white;
+  --color-black: black;
+  --color-background: rgba(18, 18, 18, 1);
+
+  --color-background2: rgba(248, 250, 253, 0.1);
+  --color-background3: rgba(248, 250, 253, 0.2);
+  --color-background4: rgba(248, 250, 253, 0.28);
+  --color-background5: rgba(248, 250, 253, 0.36);
+  --color-background6: rgba(248, 250, 253, 0.36);
+  --color-foreground1: rgba(248, 250, 253, 0.48);
+  --color-foreground2: rgba(248, 250, 253, 0.56);
+
+  --color-input-background: rgba(0, 0, 0, 0.9);
+
+  --color-grey1: rgba(92, 92, 92, 0.5);
+  --color-grey2: rgba(92, 92, 92, 0.6);
+  --color-grey3: rgba(92, 92, 92, 0.8);
+  --color-grey4: rgba(92, 92, 92, 1);
+  --color-grey5: rgba(92, 92, 92, 0.3);
+  --color-grey6: rgba(92, 92, 92, 0.35);
+  --color-grey7: rgba(92, 92, 92, 0.4);
+  --color-grey8: rgba(81, 80, 80, 1);
+
+
+  --color-primary-blue1: rgba(27, 164, 255, 0.5);
+  --color-primary-blue2: rgba(27, 164, 255, 0.8);
+  --color-primary-blue3: rgba(27, 164, 255, 0.85);
+  --color-primary-blue4: rgba(27, 164, 255, 0.9);
+  --color-secondary-blue1: rgba(27, 164, 255, 0.3);
+  --color-secondary-blue2: rgba(27, 164, 255, 0.35);
+  --color-secondary-blue3: rgba(27, 164, 255, 0.4);
+
+  --color-primary-green1: rgba(19, 255, 128, 0.5);
+  --color-primary-green2: rgba(19, 255, 128, 0.8);
+  --color-primary-green3: rgba(19, 255, 128, 0.85);
+  --color-primary-green4: rgba(19, 255, 128, 0.9);
+  --color-secondary-green1: rgba(19, 255, 128, 0.3);
+  --color-secondary-green2: rgba(19, 255, 128, 0.35);
+  --color-secondary-green3: rgba(19, 255, 128, 0.4);
+
+  --color-primary-red1: rgba(255, 78, 78, 0.5);
+  --color-primary-red2: rgba(255, 78, 78, 0.8);
+  --color-primary-red3: rgba(255, 78, 78, 0.85);
+  --color-primary-red4: rgba(255, 78, 78, 0.9);
+  --color-secondary-red1: rgba(255, 78, 78, 0.3);
+  --color-secondary-red2: rgba(255, 78, 78, 0.35);
+  --color-secondary-red3: rgba(255, 78, 78, 0.4);
+
+  --color-primary-orange1: rgba(255, 177, 24, 0.5);
+  --color-primary-orange2: rgba(255, 177, 24, 0.8);
+  --color-primary-orange3: rgba(255, 177, 24, 0.85);
+  --color-primary-orange4: rgba(255, 177, 24, 0.9);
+  --color-secondary-orange1: rgba(255, 177, 24, 0.3);
+  --color-secondary-orange2: rgba(255, 177, 24, 0.35);
+  --color-secondary-orange3: rgba(255, 177, 24, 0.4);
+
+  --border-radius: 4px;
+  --border-radius-small: 2px;
+  --border-radius-medium: 4px;
+  --border-radius-large: 8px;
+  --border-radius-circle: 50%;
+  --border-radius-pill: 500px;
+
+  --font-size-xxs: 0.625rem;
+  --font-size-xs: 0.75rem;
+  --font-size-s: 0.875rem;
+  --font-size-m: 1rem;
+  --font-size-l: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-xxl: 1.5rem;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+
+
+  --max-width: 1200px;
+
+  --color-error: rgba(148, 1, 1, 1);
+
+  --color-black-all: rgba(0, 0, 0, 1);
+  --color-white-all: rgba(255, 255, 255, 1);
+
+  --color-blue1: rgba(0, 87, 255, 1);
+  --color-blue2: rgba(0, 87, 255, 0.9);
+  --color-blue3: rgba(0, 87, 255, 0.8);
+
+  --color-black1: rgba(0, 0, 0, 0.8);
+  --color-black2: rgba(0, 0, 0, 0.7);
+  --color-black3: rgba(0, 0, 0, 0.6);
+
+  --color-black1-all: rgba(0, 0, 0, 0.8);
+  --color-black2-all: rgba(0, 0, 0, 0.7);
+  --color-black3-all: rgba(0, 0, 0, 0.6);
+
+  --color-warning: rgba(64, 41, 0, 1);
+  --color-warning-bg: rgba(252, 248, 227, 1);
+  --color-warning-border: rgba(250, 235, 204, 1);
+}
+
+body.light {
+  --color-white: black;
+  --color-black: white;
+  --color-background: white;
+
+  --color-background2: rgba(0, 0, 0, 0.1);
+  --color-background3: rgba(0, 0, 0, 0.2);
+  --color-background4: rgba(0, 0, 0, 0.28);
+  --color-background5: rgba(0, 0, 0, 0.36);
+  --color-background6: rgba(0, 0, 0, 0.36);
+  --color-foreground1: rgba(0, 0, 0, 0.48);
+  --color-foreground2: rgba(0, 0, 0, 0.56);
+
+  --color-grey1: rgba(255, 255, 255, 0.5);
+  --color-grey2: rgba(255, 255, 255, 0.6);
+  --color-grey3: rgba(255, 255, 255, 0.8);
+  --color-grey4: rgba(255, 255, 255, 1);
+  --color-grey5: rgba(255, 255, 255, 0.3);
+  --color-grey6: rgba(255, 255, 255, 0.35);
+  --color-grey7: rgba(255, 255, 255, 0.4);
+  --color-grey8: rgba(204, 204, 204, 1);
+
+  --color-input-background: rgba(255, 255, 255, 0.9);
+  --color-error: rgba(255, 150, 150, 1);
+
+  --color-black1: rgba(255, 255, 255, 0.8);
+  --color-black2: rgba(255, 255, 255, 0.7);
+  --color-black3: rgba(255, 255, 255, 0.6);
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-white);
+}
+
+main {
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+#app {
+  font-family: var(--font-regular);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
