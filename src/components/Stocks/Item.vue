@@ -14,7 +14,7 @@
         :disabled="!isConnected"
     >
       <template #default>
-        <FontAwesomeIcon :icon="fa" />
+        <font-awesome-icon :icon="faBellSlash" />
         <span class="ml-2 hidden-xs">Unsubscribe</span>
       </template>
     </Button>
@@ -24,13 +24,12 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Button from 'components/Button.vue';
-import { FontAwesomeIcon, fa } from '@fortawesome/vue-fontawesome';
+import { faBellSlash } from '@fortawesome/free-solid-svg-icons';
 
 export default defineComponent({
   name: 'StockItem',
   components: {
     Button,
-    FontAwesomeIcon,
   },
   props: {
     isin: {
@@ -50,6 +49,12 @@ export default defineComponent({
       type: Boolean,
       required: true,
     },
+  },
+
+  setup() {
+    return {
+      faBellSlash,
+    };
   },
 });
 </script>

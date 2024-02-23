@@ -1,17 +1,16 @@
 <template>
   <header class="header container flex-justify-end flex-center">
     <button
-        type="button"
-        class="button-theme flex flex-center"
-        aria-label="Toggle theme"
-        title="Toggle theme"
-        @click="toggleTheme"
+      type="button"
+      class="button-theme flex flex-center"
+      aria-label="Toggle theme"
+      title="Toggle theme"
+      @click="toggleTheme"
     >
-      <component
-          :is="iconComponent"
-          data-testid="icon"
-          size="30"
-          :color="iconColor"
+      <font-awesome-icon
+        :icon="iconComponent"
+        :style="{ color: iconColor }"
+
       />
     </button>
   </header>
@@ -19,8 +18,7 @@
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
-import MdOutlineLightMode from 'vue-icons/icon-name';
-import MdOutlineNightlight from 'vue-icons/icon-name';
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 
 export default defineComponent({
   name: 'Header',
@@ -37,9 +35,9 @@ export default defineComponent({
     };
 
     const isLight = computed(() => props.theme === 'light');
-    const iconComponent = computed(() =>
-        isLight.value ? MdOutlineLightMode : MdOutlineNightlight
-    );
+    const iconComponent = computed(() => {
+      return isLight.value ? faMoon : faSun;
+    });
     const iconColor = computed(() => (isLight.value ? '#212121' : '#fff'));
 
     return {

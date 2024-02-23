@@ -15,7 +15,7 @@
           title="Subscribe"
           :disabled="!!error || value?.length !== maxLength || !isConnected"
       >
-        <FaRegBell size="20" />
+        <font-awesome-icon :icon="faBell" />
         <span class="ml-2 hidden-xs">Subscribe</span>
       </Button>
     </div>
@@ -27,6 +27,8 @@
 import { defineComponent } from 'vue';
 import Button from 'components/Button.vue';
 import TextField from 'components/Form/TextField.vue';
+
+import { faBell } from '@fortawesome/free-solid-svg-icons';
 
 export default defineComponent({
   name: 'Form',
@@ -49,6 +51,12 @@ export default defineComponent({
     onSubmit(e: Event) {
       this.$emit('submit', e);
     },
+  },
+
+  setup() {
+    return {
+      faBell,
+    };
   },
 });
 </script>
