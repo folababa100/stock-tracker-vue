@@ -35,7 +35,6 @@ export default defineComponent({
   components: {
     Button,
     TextField,
-    // FaRegBell: You need to find a Vue equivalent or use a different approach
   },
   props: {
     value: String,
