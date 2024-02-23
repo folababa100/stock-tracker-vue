@@ -25,8 +25,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Button from '../Button/Button.vue';
-import TextField from './TextField/TextField.vue';
+import Button from 'components/Button.vue';
+import TextField from 'components/Form/TextField.vue';
 
 export default defineComponent({
   name: 'Form',

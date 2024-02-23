@@ -19,9 +19,8 @@
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
-// You'll need to find Vue equivalents for these icons or use a Vue-compatible icon library
-import MdOutlineLightMode from 'vue-icons/icon-name'; // Placeholder import, adjust based on actual import path
-import MdOutlineNightlight from 'vue-icons/icon-name'; // Placeholder import, adjust based on actual import path
+import MdOutlineLightMode from 'vue-icons/icon-name';
+import MdOutlineNightlight from 'vue-icons/icon-name';
 
 export default defineComponent({
   name: 'Header',

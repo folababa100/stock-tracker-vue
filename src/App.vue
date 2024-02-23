@@ -34,12 +34,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Header from '@/components/Header.vue'; // Adjust import paths as needed
-import Stocks from '@/components/Stocks/List.vue';
-import Alert from '@/components/Alert.vue';
-import Form from '@/components/Form.vue';
-import { useStock } from '@/composables/useStock'; // Ensure these composables are adapted for Vue
-import { useTheme } from '@/composables/useTheme';
+import Header from 'components/Header.vue';
+import Stocks from 'components/Stocks/List.vue';
+import Alert from 'components/Alert.vue';
+import Form from 'components/Form.vue';
+
+import { useStock } from 'composables/useStock';
+import { useTheme } from 'composables/useTheme';
 
 export default defineComponent({
   name: 'App',
@@ -83,7 +84,6 @@ export default defineComponent({
 </script>
 
 <style>
-/* Import or define your styles here */
 @import './styles/normalize.css';
 @import './App.css';
 @import './styles/utility.scss';

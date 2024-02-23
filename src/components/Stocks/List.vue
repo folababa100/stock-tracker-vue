@@ -27,20 +27,25 @@
 
 <script lang="ts">
 import { defineComponent, computed, toRefs } from 'vue';
-import Item from '../Item.vue'; // Adjust the import path as needed
-import Pagination from 'components/Pagination.vue'; // Adjust the import path as needed
-import usePagination from 'hooks/usePagination'; // Adjust based on your Vue composable
+import Item from 'components/Stocks/Item.vue';
+import Pagination from 'components/Pagination.vue';
+import { usePagination } from 'composables';
+
+interface Subscription {
+  isin: string;
+  price: number;
+}
+
 
 export default defineComponent({
   name: 'List',
-  components: { Item, Pagination, FaRegSmile }, // Ensure FaRegSmile is imported correctly
+  components: { Item, Pagination, FaRegSmile },
   props: {
     stocks: Array as () => Subscription[],
-    unsubscribe: Function as () => (isin: string) => void,
+    unsubscribe: (isin: string) => void,
     isConnected: Boolean,
   },
   setup(props) {
-    // Adapt usePagination hook logic into Vue's Composition API
     const { stocks } = toRefs(props);
     const { items, page, nextPage, prevPage, startItem, endItem } = usePagination(stocks.value.length);
 

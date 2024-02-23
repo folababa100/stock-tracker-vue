@@ -14,7 +14,7 @@
         :disabled="!isConnected"
     >
       <template #default>
-        <FaRegBellSlash size="20" />
+        <FontAwesomeIcon :icon="fa" />
         <span class="ml-2 hidden-xs">Unsubscribe</span>
       </template>
     </Button>
@@ -23,15 +23,14 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Button from 'components/Button.vue'; // Adjust the import path as needed
-// For icons, consider using a Vue-specific library like Vue FontAwesome
-import { FaRegBellSlash } from '@fortawesome/vue-fontawesome'; // This is a placeholder
+import Button from 'components/Button.vue';
+import { FontAwesomeIcon, fa } from '@fortawesome/vue-fontawesome';
 
 export default defineComponent({
   name: 'StockItem',
   components: {
     Button,
-    FaRegBellSlash,
+    FontAwesomeIcon,
   },
   props: {
     isin: {
