@@ -10,7 +10,6 @@
       <font-awesome-icon
         :icon="iconComponent"
         :style="{ color: iconColor }"
-
       />
     </button>
   </header>
@@ -27,21 +26,27 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    toggleTheme: {
+      type: Function,
+      required: true,
+    },
   },
   emits: ['toggleTheme'],
-  setup(props, { emit }) {
-    const toggleTheme = () => {
-      emit('toggleTheme');
+  setup({ toggleTheme, theme }) {
+    const toggle = () => {
+      toggleTheme();
     };
 
-    const isLight = computed(() => props.theme === 'light');
+    console.log('theme', theme);
+
+    const isLight = computed(() => theme === 'light');
     const iconComponent = computed(() => {
       return isLight.value ? faMoon : faSun;
     });
     const iconColor = computed(() => (isLight.value ? '#212121' : '#fff'));
 
     return {
-      toggleTheme,
+      toggleTheme: toggle,
       isLight,
       iconComponent,
       iconColor,
@@ -50,7 +55,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style>
 .header {
   position: sticky;
   top: 0;
@@ -62,6 +67,10 @@ export default defineComponent({
   max-width: var(--max-width);
   border-bottom: 1px solid var(--color-white);
   transition: all 0.3s ease;
+
+  .header-logo {
+    width: 60px;
+  }
 }
 
 .button-theme {
@@ -73,13 +82,14 @@ export default defineComponent({
   height: 40px;
   background-color: transparent;
   transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: var(--color-background3);
+  }
+
+  &:active {
+    background-color: var(--color-background4);
+  }
 }
 
-.button-theme:hover {
-  background-color: var(--color-background3);
-}
-
-.button-theme:active {
-  background-color: var(--color-background4);
-}
 </style>

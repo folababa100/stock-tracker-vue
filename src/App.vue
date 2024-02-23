@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <a href="#main" class="skip-link">Skip to content</a>
     <Header :toggle-theme="toggleTheme" :theme="theme" />
     <main id="main" class="container">
@@ -23,30 +23,32 @@
           :on-click="reconnect"
           :is-connecting="isConnecting"
       />
-      <Stocks
-          :stocks="stocks"
-          :unsubscribe="unsubscribe"
-          :is-connected="isConnected"
-      />
+<!--      <Stocks-->
+<!--          :stocks="stocks"-->
+<!--          :unsubscribe="unsubscribe"-->
+<!--          :is-connected="isConnected"-->
+<!--      />-->
     </main>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Header from 'components/Header.vue';
-import Stocks from 'components/Stocks/List.vue';
-import Alert from 'components/Alert.vue';
-import Form from 'components/Form.vue';
+import Header from './components/Header.vue';
+import Alert from './components/Alert.vue';
+import Form from './components/Form.vue';
+// import Stocks from 'components/Stocks/List.vue';
 
-import { useStock } from 'composables/useStock';
-import { useTheme } from 'composables/useTheme';
+import { useStock, useTheme } from './composables';
+import './styles/normalize.css';
+import './App.css';
+import './styles/utility.scss';
 
 export default defineComponent({
   name: 'App',
   components: {
     Header,
-    Stocks,
+    // Stocks,
     Alert,
     Form,
   },
@@ -82,9 +84,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style>
-@import './styles/normalize.css';
-@import './App.css';
-@import './styles/utility.scss';
-</style>

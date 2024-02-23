@@ -25,8 +25,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Button from 'components/Button.vue';
-import TextField from 'components/Form/TextField.vue';
+import Button from './Button.vue';
+import TextField from './Form/TextField.vue';
 
 import { faBell } from '@fortawesome/free-solid-svg-icons';
 
@@ -60,7 +60,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style lang="scss">
 .form-card {
   background-color: var(--color-white);
   color: var(--color-black);

@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import Button from 'components/Button.vue'; // Adjust path as necessary
+import Button from './Button.vue';
 
 export default defineComponent({
   name: 'Alert',
@@ -42,7 +42,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style lang="scss">
 .alert {
   padding: 15px 60px 15px 15px;
   margin-bottom: 20px;
@@ -51,11 +51,12 @@ export default defineComponent({
   display: flex;
   align-items: center;
   position: relative;
+
+  &-warning {
+    color: var(--color-warning);
+    background-color: var(--color-warning-bg);
+    border-color: var(--color-warning-border);
+  }
 }
 
-.alert-warning {
-  color: var(--color-warning);
-  background-color: var(--color-warning-bg);
-  border-color: var(--color-warning-border);
-}
 </style>

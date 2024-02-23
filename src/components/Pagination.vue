@@ -49,7 +49,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style lang="scss">
 .pagination {
   display: flex;
   justify-content: center;
@@ -91,4 +91,5 @@ export default defineComponent({
     margin: 0 1rem;
   }
 }
+
 </style>

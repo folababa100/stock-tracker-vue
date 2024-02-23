@@ -37,7 +37,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style lang="scss">
 .form-control {
   display: flex;
   flex-direction: column;

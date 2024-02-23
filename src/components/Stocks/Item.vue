@@ -59,7 +59,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style lang="scss">
 .StockItem {
   display: flex;
   justify-content: space-between;
@@ -68,34 +68,34 @@ export default defineComponent({
   padding: 1rem;
   border-radius: var(--border-radius-large);
   margin-bottom: 1rem;
-}
 
-.StockItem-data {
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  align-items: flex-start;
-}
-
-.StockItem-isin {
-  font-size: var(--font-size-xs);
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-  color: var(--color-grey8);
-}
-
-.StockItem-price {
-  font-size: var(--font-size-l);
-  font-weight: 600;
-}
-
-@media (min-width: 576px) {
-  .StockItem-isin {
-    font-size: var(--font-size-s);
+  &-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-start;
   }
 
-  .StockItem-price {
-    font-size: var(--font-size-xl);
+  &-isin {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--color-grey8);
+  }
+
+  &-price {
+    font-size: var(--font-size-l);
+    font-weight: 600;
+  }
+
+  @media (min-width: 576px) {
+    &-isin {
+      font-size: var(--font-size-s);
+    }
+
+    &-price {
+      font-size: var(--font-size-xl);
+    }
   }
 }
 </style>

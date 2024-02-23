@@ -11,7 +11,7 @@ export default defineComponent({
   name: 'Button',
   props: {
     variant: {
-      type: String as PropType<'primary' | 'secondary' | 'sm' | 'close'>,
+      type: String as PropType<'primary' | 'secondary' | 'danger'>,
       default: 'primary',
     },
     className: {
@@ -30,7 +30,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style lang="scss">
 .btn {
   border: none;
   font-family: inherit;
