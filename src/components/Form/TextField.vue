@@ -6,7 +6,7 @@
         :name="id"
         :value="value"
         :maxlength="maxlength"
-        @input="$emit('update:value', $event?.target?.value)"
+        @input="$emit('update:value', $event.target?.value)"
         required
         v-bind="$attrs"
     />

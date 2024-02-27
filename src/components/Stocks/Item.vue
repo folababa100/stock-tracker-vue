@@ -7,7 +7,7 @@
       <span class="StockItem-price">{{ price }}</span>
     </div>
     <Button
-        @click="unsubscribe"
+        on-click="unsubscribe"
         :title="`Unsubscribe from ${isin}`"
         aria-label="`Unsubscribe from ${isin}`"
         variant="secondary"
@@ -44,7 +44,10 @@ export default defineComponent({
       type: Number,
       required: true,
     },
-    unsubscribe: Function,
+    unsubscribe: {
+      type: Function,
+      required: true,
+    },
     isConnected: {
       type: Boolean,
       required: true,

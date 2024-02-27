@@ -10,14 +10,14 @@
         subscribe.<br />
         Example: DE000BASF111
       </p>
-      <Form
-          :value="value"
-          :set-value="setValue"
-          :on-submit="onSubscribe"
-          :error="error"
-          :max-length="maxLength"
-          :is-connected="isConnected"
-      />
+<!--      <Form-->
+<!--          :value="value"-->
+<!--          :set-value="setValue"-->
+<!--          :on-submit="onSubscribe"-->
+<!--          :error="error"-->
+<!--          :max-length="maxLength"-->
+<!--          :is-connected="isConnected"-->
+<!--      />-->
       <Alert
           :show="!isConnected"
           :on-click="reconnect"
@@ -34,12 +34,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Header from './components/Header.vue';
-import Alert from './components/Alert.vue';
-import Form from './components/Form.vue';
+import Header from '@/components/Header.vue';
+import Alert from '@/components/Alert.vue';
+import Form from '@/components/Form.vue';
 // import Stocks from 'components/Stocks/List.vue';
 
-import { useStock, useTheme } from './composables';
+import { useStock, useTheme } from '@/composables';
 import './styles/normalize.css';
 import './App.css';
 import './styles/utility.scss';

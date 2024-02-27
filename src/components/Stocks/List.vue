@@ -9,8 +9,8 @@
         :current-index="(page - 1) * items + index + 1"
         :isin="stock.isin"
         :price="stock.price"
-        :unsubscribe="() => unsubscribe.value(stock.isin)"
-        :is-connected="isConnected.value"
+        :unsubscribe="() => unsubscribe(stock.isin)"
+        :is-connected="isConnected"
       />
     </div>
     <Pagination
@@ -40,9 +40,18 @@ export default defineComponent({
   name: 'List',
   components: { Item, Pagination },
   props: {
-    stocks: Array as () => Subscription[],
-    unsubscribe: Function as (isin: string) => void, // Corrected type definition
-    isConnected: Boolean,
+    stocks: {
+      type: Array as () => Subscription[],
+      required: true,
+    },
+    unsubscribe: {
+      type: Function,
+      required: true,
+    },
+    isConnected: {
+      type: Boolean,
+      required: true,
+    }
   },
   setup(props) {
     const { stocks, unsubscribe, isConnected } = toRefs(props);
@@ -59,7 +68,7 @@ export default defineComponent({
       items,
       stocksLength,
       faSmile,
-      unsubscribe, // Now correctly referenced
+      unsubscribe,
       isConnected,
     };
   },

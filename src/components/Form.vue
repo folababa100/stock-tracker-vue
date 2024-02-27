@@ -41,17 +41,9 @@ export default defineComponent({
     error: String,
     maxLength: Number,
     isConnected: Boolean,
+    setValue: Function,
+    onSubmit: Function,
   },
-  emits: ['update:value', 'submit'],
-  methods: {
-    setValue(value: string) {
-      this.$emit('update:value', value);
-    },
-    onSubmit(e: Event) {
-      this.$emit('submit', e);
-    },
-  },
-
   setup() {
     return {
       faBell,
