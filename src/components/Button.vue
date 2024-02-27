@@ -1,5 +1,5 @@
 <template>
-  <button :class="['btn', `btn-${variant}`, className]" v-bind="$attrs" @click="onClick">
+  <button :class="['btn', `btn-${variant}`, className]" v-bind="$attrs">
     <slot></slot>
   </button>
 </template>
@@ -18,14 +18,6 @@ export default defineComponent({
       type: String,
       default: '',
     },
-  },
-  emits: ['click'],
-  setup(props, { emit }) {
-    const onClick = (event: Event) => {
-      emit('click', event);
-    };
-
-    return { onClick };
   },
 });
 </script>

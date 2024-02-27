@@ -26,9 +26,9 @@
 
 <script lang="ts">
 import { defineComponent, computed, toRefs } from 'vue';
-import Item from 'components/Stocks/Item.vue';
-import Pagination from 'components/Pagination.vue';
-import { usePagination } from 'composables';
+import Item from '@/components/Stocks/Item.vue';
+import Pagination from '@/components/Pagination.vue';
+import { usePagination } from '@/composables';
 import { faSmile } from '@fortawesome/free-solid-svg-icons';
 
 interface Subscription {
@@ -55,7 +55,7 @@ export default defineComponent({
   },
   setup(props) {
     const { stocks, unsubscribe, isConnected } = toRefs(props);
-    const { items, page, nextPage, prevPage, startItem, endItem } = usePagination(computed(() => stocks.value.length));
+    const { items, page, nextPage, prevPage, startItem, endItem } = usePagination(stocks.value.length);
 
     const currentStocks = computed(() => stocks.value.slice(startItem.value, endItem.value));
     const stocksLength = computed(() => stocks.value.length);

@@ -11,7 +11,8 @@
     "test": "vitest",
     "coverage": "vitest --coverage",
     "format": "prettier --write",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "clean": "rm -rf node_modules && rm -rf yarn.lock && rm -rf package-lock.json"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
@@ -44,7 +45,6 @@
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
-      "yarn lint",
       "yarn format"
     ]
   }

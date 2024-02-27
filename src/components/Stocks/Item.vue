@@ -7,7 +7,7 @@
       <span class="StockItem-price">{{ price }}</span>
     </div>
     <Button
-        on-click="unsubscribe"
+        @click="unsubscribe"
         :title="`Unsubscribe from ${isin}`"
         aria-label="`Unsubscribe from ${isin}`"
         variant="secondary"
@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Button from 'components/Button.vue';
+import Button from '@/components/Button.vue';
 import { faBellSlash } from '@fortawesome/free-solid-svg-icons';
 
 export default defineComponent({

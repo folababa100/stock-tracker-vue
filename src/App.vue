@@ -10,24 +10,24 @@
         subscribe.<br />
         Example: DE000BASF111
       </p>
-<!--      <Form-->
-<!--          :value="value"-->
-<!--          :set-value="setValue"-->
-<!--          :on-submit="onSubscribe"-->
-<!--          :error="error"-->
-<!--          :max-length="maxLength"-->
-<!--          :is-connected="isConnected"-->
-<!--      />-->
+      <Form
+          :value="value"
+          :set-value="setValue"
+          :on-submit="onSubscribe"
+          :error="error"
+          :max-length="maxLength"
+          :is-connected="isConnected"
+      />
       <Alert
           :show="!isConnected"
           :on-click="reconnect"
           :is-connecting="isConnecting"
       />
-<!--      <Stocks-->
-<!--          :stocks="stocks"-->
-<!--          :unsubscribe="unsubscribe"-->
-<!--          :is-connected="isConnected"-->
-<!--      />-->
+      <Stocks
+          :stocks="stocks"
+          :unsubscribe="unsubscribe"
+          :is-connected="isConnected"
+      />
     </main>
   </div>
 </template>
@@ -37,7 +37,7 @@ import { defineComponent } from 'vue';
 import Header from '@/components/Header.vue';
 import Alert from '@/components/Alert.vue';
 import Form from '@/components/Form.vue';
-// import Stocks from 'components/Stocks/List.vue';
+import Stocks from '@/components/Stocks/List.vue';
 
 import { useStock, useTheme } from '@/composables';
 import './styles/normalize.css';
@@ -48,7 +48,7 @@ export default defineComponent({
   name: 'App',
   components: {
     Header,
-    // Stocks,
+    Stocks,
     Alert,
     Form,
   },

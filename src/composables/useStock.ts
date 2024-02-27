@@ -1,25 +1,36 @@
 import { computed } from 'vue';
 import { useWebSocket } from './useWebSocket';
-import { WebSocketState } from 'types';
+import { WebSocketState } from '../types';
 
 const MAX_LENGTH = 12;
 const REGEX = new RegExp(/[a-zA-Z]{2}[a-zA-Z0-9]{9}\d/);
 
 export function useStock() {
-  const { stocks, subscribe, isDuplicate, webSocketState, value, ...rest } = useWebSocket();
+  const { stocks, subscribe, isDuplicate, webSocketState, value, ...rest } =
+    useWebSocket();
 
-  const isInvalid = computed(() => value.value.length === MAX_LENGTH && !REGEX.test(value.value));
+  const isInvalid = computed(
+    () => value.value.length === MAX_LENGTH && !REGEX.test(value.value),
+  );
 
   const onSubscribe = (e: Event) => {
     e.preventDefault();
-    if (isInvalid.value || isDuplicate.value || value.value.length !== MAX_LENGTH) {
+    if (
+      isInvalid.value ||
+      isDuplicate.value ||
+      value.value.length !== MAX_LENGTH
+    ) {
       return;
     }
     subscribe(value.value);
   };
 
-  const isConnected = computed(() => webSocketState.value === WebSocketState.Open);
-  const isConnecting = computed(() => webSocketState.value === WebSocketState.Connecting);
+  const isConnected = computed(
+    () => webSocketState.value === WebSocketState.Open,
+  );
+  const isConnecting = computed(
+    () => webSocketState.value === WebSocketState.Connecting,
+  );
 
   const error = computed(() => {
     if (isInvalid.value) {
