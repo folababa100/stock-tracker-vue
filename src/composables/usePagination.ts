@@ -1,6 +1,6 @@
 import { computed, ComputedRef, ref, watchEffect } from "vue";
 
-const ITEMS_PER_PAGE = 5;
+const ITEMS_PER_PAGE = 1;
 
 export function usePagination(totalItems: ComputedRef<number>) {
   const page = ref(1);
@@ -36,7 +36,6 @@ export function usePagination(totalItems: ComputedRef<number>) {
     setPage: setCurrentPage,
     nextPage,
     prevPage,
-    totalPages,
     startItem,
     endItem,
     items: ITEMS_PER_PAGE,
