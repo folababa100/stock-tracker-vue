@@ -1,12 +1,12 @@
-import { computed, ref } from "vue";
+import { computed, ComputedRef, ref, watchEffect } from "vue";
 
 const ITEMS_PER_PAGE = 1;
 
-export function usePagination(totalItems: number) {
+export function usePagination(totalItems: ComputedRef<number>) {
   const page = ref(1);
 
   const totalPages = computed(() => {
-    return Math.ceil(totalItems / ITEMS_PER_PAGE);
+    return Math.ceil(totalItems.value / ITEMS_PER_PAGE);
   });
 
   const setCurrentPage = (newPage: number) => {
@@ -14,7 +14,6 @@ export function usePagination(totalItems: number) {
   };
 
   const nextPage = () => {
-    console.log("nextPage");
     setCurrentPage(page.value + 1);
   };
 
@@ -22,13 +21,12 @@ export function usePagination(totalItems: number) {
     setCurrentPage(page.value - 1);
   };
 
-  // Vue's watchEffect is used to reactively perform side effects when dependencies change.
-  // watchEffect(() => {
-  //   // Adjust the current page if it exceeds the total pages due to a decrease in totalItems.
-  //   if (totalItems > 0 && page.value > totalPages.value) {
-  //     setCurrentPage(totalPages.value);
-  //   }
-  // });
+  watchEffect(() => {
+    // Adjust the current page if it exceeds the total pages due to a decrease in totalItems.
+    if (totalItems.value > 0 && page.value > totalPages.value) {
+      setCurrentPage(totalPages.value);
+    }
+  });
 
   const startItem = computed(() => (page.value - 1) * ITEMS_PER_PAGE);
   const endItem = computed(() => startItem.value + ITEMS_PER_PAGE);

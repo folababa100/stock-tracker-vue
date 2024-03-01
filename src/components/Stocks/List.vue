@@ -59,13 +59,15 @@
     },
     setup(props) {
       const { stocks } = toRefs(props);
+
+      const stocksLength = computed(() => stocks.value.length);
+
       const { items, page, nextPage, prevPage, startItem, endItem } =
-        usePagination(stocks.value.length);
+        usePagination(stocksLength);
 
       const currentStocks = computed(() =>
         stocks.value.slice(startItem.value, endItem.value),
       );
-      const stocksLength = computed(() => stocks.value.length);
       return {
         currentStocks,
         page,
