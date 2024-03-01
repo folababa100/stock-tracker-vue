@@ -1,6 +1,6 @@
-import { computed } from 'vue';
-import { useWebSocket } from './useWebSocket';
-import { WebSocketState } from '../types';
+import { computed } from "vue";
+import { useWebSocket } from "./useWebSocket";
+import { WebSocketState } from "../types";
 
 const MAX_LENGTH = 12;
 const REGEX = new RegExp(/[a-zA-Z]{2}[a-zA-Z0-9]{9}\d/);
@@ -34,13 +34,13 @@ export function useStock() {
 
   const error = computed(() => {
     if (isInvalid.value) {
-      return 'Incorrect ISIN code. Please try again.';
+      return "Incorrect ISIN code. Please try again.";
     } else if (isDuplicate.value) {
-      return 'Already subscribed, please try another ISIN code.';
+      return "Already subscribed, please try another ISIN code.";
     } else if (!isConnected.value) {
-      return 'Please reconnect to track your stocks.';
+      return "Please reconnect to track your stocks.";
     }
-    return '';
+    return "";
   });
 
   return {

@@ -14,10 +14,10 @@ jobs:
       - name: pull-request
         uses: repo-sync/pull-request@v2
         with:
-          destination_branch: 'develop'
+          destination_branch: "develop"
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          pr_body: 'Syncing Develop'
-          pr_title: 'Pulling ${{ github.ref }} into develop'
+          pr_body: "Syncing Develop"
+          pr_title: "Pulling ${{ github.ref }} into develop"
           source_branch: ${{ github.ref }}
   running-tests:
     needs: create-pull-request-for-develop

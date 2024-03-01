@@ -4,12 +4,12 @@ export interface Stock {
 }
 
 export enum SubscriptionType {
-  Subscribe = 'subscribe',
-  Unsubscribe = 'unsubscribe',
+  Subscribe = "subscribe",
+  Unsubscribe = "unsubscribe",
 }
 
-export type ButtonType = 'primary' | 'secondary' | 'danger';
-export type AlertType = 'primary' | 'secondary' | 'danger';
+export type ButtonType = "primary" | "secondary" | "danger";
+export type AlertType = "primary" | "secondary" | "danger";
 
 export enum WebSocketState {
   Connecting = 0,

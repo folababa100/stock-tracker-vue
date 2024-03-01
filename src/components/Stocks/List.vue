@@ -4,7 +4,11 @@
       <font-awesome-icon :icon="faSmile" size="3x" />
       <p class="mt-2">You are not tracking any stocks yet.</p>
     </div>
-    <div v-for="(stock, index) in currentStocks" :key="stock.isin" data-testid="Item">
+    <div
+      v-for="(stock, index) in currentStocks"
+      :key="stock.isin"
+      data-testid="Item"
+    >
       <Item
         :current-index="(page - 1) * items + index + 1"
         :isin="stock.isin"
@@ -25,52 +29,52 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, toRefs } from 'vue';
-import Item from '@/components/Stocks/Item.vue';
-import Pagination from '@/components/Pagination.vue';
-import { usePagination } from '@/composables';
-import { faSmile } from '@fortawesome/free-solid-svg-icons';
+  import { computed, defineComponent, toRefs } from "vue";
+  import Item from "@/components/Stocks/Item.vue";
+  import Pagination from "@/components/Pagination.vue";
+  import { usePagination } from "@/composables";
+  import { faSmile } from "@fortawesome/free-solid-svg-icons";
 
-interface Subscription {
-  isin: string;
-  price: number;
-}
+  interface Subscription {
+    isin: string;
+    price: number;
+  }
 
-export default defineComponent({
-  name: 'List',
-  components: { Item, Pagination },
-  props: {
-    stocks: {
-      type: Array as () => Subscription[],
-      required: true,
+  export default defineComponent({
+    name: "List",
+    components: { Item, Pagination },
+    props: {
+      stocks: {
+        type: Array as () => Subscription[],
+        required: true,
+      },
+      unsubscribe: {
+        type: Function,
+        required: true,
+      },
+      isConnected: {
+        type: Boolean,
+        required: true,
+      },
     },
-    unsubscribe: {
-      type: Function,
-      required: true,
+    setup(props) {
+      const { stocks } = toRefs(props);
+      const { items, page, nextPage, prevPage, startItem, endItem } =
+        usePagination(stocks.value.length);
+
+      const currentStocks = computed(() =>
+        stocks.value.slice(startItem.value, endItem.value),
+      );
+      const stocksLength = computed(() => stocks.value.length);
+      return {
+        currentStocks,
+        page,
+        nextPage,
+        prevPage,
+        items,
+        stocksLength,
+        faSmile,
+      };
     },
-    isConnected: {
-      type: Boolean,
-      required: true,
-    }
-  },
-  setup(props) {
-    const { stocks, unsubscribe, isConnected } = toRefs(props);
-    const { items, page, nextPage, prevPage, startItem, endItem } = usePagination(stocks.value.length);
-
-    const currentStocks = computed(() => stocks.value.slice(startItem.value, endItem.value));
-    const stocksLength = computed(() => stocks.value.length);
-
-    return {
-      currentStocks,
-      page,
-      nextPage,
-      prevPage,
-      items,
-      stocksLength,
-      faSmile,
-      unsubscribe,
-      isConnected,
-    };
-  },
-});
+  });
 </script>

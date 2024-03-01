@@ -1,22 +1,31 @@
 @font-face {
   font-family: DIN Next TR Regular;
-  src: url(/fonts/DINNextLTPro-Regular.woff) format('woff'), url(/fonts/DINNextLTPro-Regular.woff2) format('woff2');
+  src:
+    url(/fonts/DINNextLTPro-Regular.woff) format("woff"),
+    url(/fonts/DINNextLTPro-Regular.woff2) format("woff2");
 }
 
 @font-face {
   font-family: DIN Next TR Medium;
-  src: url(/fonts/DINNextLTPro-Medium.woff) format('woff'), url(/fonts/DINNextLTPro-Medium.woff2) format('woff2');
+  src:
+    url(/fonts/DINNextLTPro-Medium.woff) format("woff"),
+    url(/fonts/DINNextLTPro-Medium.woff2) format("woff2");
 }
 
 @font-face {
   font-family: DIN Next TR Bold;
-  src: url(/fonts/DINNextLTPro-Bold.woff) format('woff'), url(/fonts/DINNextLTPro-Bold.woff2) format('woff2');
+  src:
+    url(/fonts/DINNextLTPro-Bold.woff) format("woff"),
+    url(/fonts/DINNextLTPro-Bold.woff2) format("woff2");
 }
 
 :root {
-  --font-regular: DIN Next TR Regular, -apple-system, system-ui, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
-  --font-medium: DIN Next TR Medium, -apple-system, system-ui, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
-  --font-bold: DIN Next TR Bold, -apple-system, system-ui, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+  --font-regular: DIN Next TR Regular, -apple-system, system-ui,
+    BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+  --font-medium: DIN Next TR Medium, -apple-system, system-ui,
+    BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+  --font-bold: DIN Next TR Bold, -apple-system, system-ui, BlinkMacSystemFont,
+    Helvetica, Arial, sans-serif;
 
   --color-white: white;
   --color-black: black;
@@ -40,7 +49,6 @@
   --color-grey6: rgba(92, 92, 92, 0.35);
   --color-grey7: rgba(92, 92, 92, 0.4);
   --color-grey8: rgba(81, 80, 80, 1);
-
 
   --color-primary-blue1: rgba(27, 164, 255, 0.5);
   --color-primary-blue2: rgba(27, 164, 255, 0.8);
@@ -93,7 +101,6 @@
   --font-weight-medium: 500;
   --font-weight-semi-bold: 600;
   --font-weight-bold: 700;
-
 
   --max-width: 1200px;
 

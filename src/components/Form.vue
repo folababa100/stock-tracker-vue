@@ -1,19 +1,23 @@
 <template>
-  <form @submit.prevent="onSubmit" class="mt-4 mb-4 form-card" data-testid="form">
+  <form
+    class="mt-4 mb-4 form-card"
+    data-testid="form"
+    @submit.prevent="onSubmit"
+  >
     <div class="flex flex-align-end gap-10">
       <TextField
-          placeholder="Enter ISIN"
-          id="isin"
-          :value="isConnected ? value : ''"
-          @update:value="setValue"
-          :maxlength="maxLength"
-          label="ISIN"
-          :disabled="!isConnected"
+        id="isin"
+        placeholder="Enter ISIN"
+        :value="isConnected ? value : ''"
+        :maxlength="maxLength"
+        label="ISIN"
+        :disabled="!isConnected"
+        @update:value="setValue"
       />
       <Button
-          type="submit"
-          title="Subscribe"
-          :disabled="!!error || value?.length !== maxLength || !isConnected"
+        type="submit"
+        title="Subscribe"
+        :disabled="!!error || value?.length !== maxLength || !isConnected"
       >
         <font-awesome-icon :icon="faBell" />
         <span class="ml-2 hidden-xs">Subscribe</span>
@@ -24,46 +28,52 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import Button from './Button.vue';
-import TextField from './Form/TextField.vue';
+  import { defineComponent, PropType } from "vue";
+  import Button from "./Button.vue";
+  import TextField from "./Form/TextField.vue";
 
-import { faBell } from '@fortawesome/free-solid-svg-icons';
+  import { faBell } from "@fortawesome/free-solid-svg-icons";
 
-export default defineComponent({
-  name: 'Form',
-  components: {
-    Button,
-    TextField,
-  },
-  props: {
-    value: String,
-    error: String,
-    maxLength: Number,
-    isConnected: Boolean,
-    setValue: Function,
-    onSubmit: Function,
-  },
-  setup() {
-    return {
-      faBell,
-    };
-  },
-});
+  export default defineComponent({
+    name: "Form",
+    components: {
+      Button,
+      TextField,
+    },
+    props: {
+      value: String,
+      error: String,
+      maxLength: Number,
+      isConnected: Boolean,
+      setValue: {
+        type: Function as PropType<(value: string) => void>,
+        required: false,
+      },
+      onSubmit: {
+        type: Function as PropType<() => void>,
+        required: false,
+      },
+    },
+    setup() {
+      return {
+        faBell,
+      };
+    },
+  });
 </script>
 
 <style lang="scss">
-.form-card {
-  background-color: var(--color-white);
-  color: var(--color-black);
-  padding: 1rem;
-  border-radius: 0.5rem;
-}
+  .form-card {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
 
-.error-text {
-  color: var(--color-error);
-  margin-bottom: 0;
-  margin-top: 0.25rem;
-  font-size: var(--font-size-s);
-}
+  .error-text {
+    color: var(--color-error);
+    margin-bottom: 0;
+    margin-top: 0.25rem;
+    font-size: var(--font-size-s);
+  }
 </style>

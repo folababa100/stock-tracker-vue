@@ -1,6 +1,6 @@
-import { ref, computed, onUnmounted } from 'vue';
-import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
-import { Stock, SubscriptionType, WebSocketState } from '../types';
+import { ref, computed, onUnmounted } from "vue";
+import { webSocket, WebSocketSubject } from "rxjs/webSocket";
+import { Stock, SubscriptionType, WebSocketState } from "../types";
 
 const WS_ENDPOINT = import.meta.env.VITE_WS_ENDPOINT as string;
 
@@ -12,7 +12,7 @@ type Subscription = Stock & {
 
 export function useWebSocket() {
   const stocks = ref<Stock[]>([]);
-  const value = ref('');
+  const value = ref("");
   const webSocketState = ref<WebSocketState>(WebSocketState.Open);
   let webSocketSubject: WebSocketSubject<Stock> | null = null;
 
@@ -23,7 +23,7 @@ export function useWebSocket() {
     if (stockIndex !== -1) {
       stocks.value[stockIndex].price = stockData.price;
     } else {
-      value.value = '';
+      value.value = "";
       stocks.value = [stockData, ...stocks.value];
     }
   };
