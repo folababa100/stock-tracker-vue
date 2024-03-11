@@ -19,8 +19,7 @@
         title="Subscribe"
         :disabled="!!error || value?.length !== maxLength || !isConnected"
       >
-        <font-awesome-icon :icon="faBell" />
-        <span class="ml-2 hidden-xs">Subscribe</span>
+        <v-icon name="fa-regular-bell" />
       </Button>
     </div>
     <p v-if="error" class="error-text">{{ error }}</p>
@@ -31,8 +30,6 @@
   import { defineComponent, PropType } from "vue";
   import Button from "./Button.vue";
   import TextField from "./Form/TextField.vue";
-
-  import { faBell } from "@fortawesome/free-solid-svg-icons";
 
   export default defineComponent({
     name: "Form",
@@ -53,11 +50,6 @@
         type: Function as PropType<() => void>,
         required: false,
       },
-    },
-    setup() {
-      return {
-        faBell,
-      };
     },
   });
 </script>
