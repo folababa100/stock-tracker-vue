@@ -1,8 +1,8 @@
-import { computed, ComputedRef, ref, watchEffect } from "vue";
+import { computed, ComputedRef, ref, Ref, watchEffect } from "vue";
 
-const ITEMS_PER_PAGE = 1;
+const ITEMS_PER_PAGE = 5;
 
-export function usePagination(totalItems: ComputedRef<number>) {
+export function usePagination(totalItems: ComputedRef<number> | Ref<number>) {
   const page = ref(1);
 
   const totalPages = computed(() => {
